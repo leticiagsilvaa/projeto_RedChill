@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --bg-color:var(--bg-color) #1d2631;
+    --tex-color: #000000;
+    --main-color: #ff0000;
+    --other-color: #000000;
+    --h1-font: 4rem;
+    --p-font: 1rem;
+}
+
+body{
+  display: flex;
+  padding: 0 35px;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: #FDFAF6 ;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 8%;
+    
+}
+
+
+.logo{
+    display: flex;
+    align-items: center;
+    color: var(--tex-color);
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo i{
+    color: var(--main-color);
+    font-size: 32px;
+    margin-right: 5px;
+}
+
+.dropdown-menu{
+  position: absolute;
+  box-shadow: 0 0 2px black;
+  display: none;
+}
+
+.dropdown-menu a{
+  display: block;
+  color: var(--tex-color);
+}
+
+.dropdown:hover .dropdown-menu{
+  display: block;
+}
+
+.navegação{
+    display: flex;
+    list-style: none;
+}
+
+.navegação a{
+    color: var(--other-color);
+    font-size: var(--p-font);
+    font-weight: 500;
+    margin:  19px;
+    transition: a .55s ease;
+    text-decoration: none;
+}
+
+.navegação a:hover{
+    color: var(--main-color);
+
+}
+
+
+.header-icons{
+    display: flex;
+    align-items: center;
+}
+
+#menu{
+    font-size: 35px;
+    color: var(--tex-color);
+    z-index: 10001;
+    cursor: pointer;
+}
+
+.header-icons i{
+    margin-right: 25px;
+    font-size: 28px;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.header-icons i:hover{
+    transform: translateY(-5px);
+    color: var(--main-color);
+}
+
+.search-container {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    left: -50px;
+}
+
+.search-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+.search-icon::before {
+    content: '';
+    width: 25%;
+    height: 25%;
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+
+.search-icon::after {
+    content: '';
+    width: 20%;
+    height: 2px;
+    background-color: #000;
+}
+
+.search-input {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    padding-left: 40px;
+    transition: all 0.7s;
+}
+
+.search-input:focus {
+    width: 250px;
+    box-shadow: 2px 2px 5px #777;
+}
+
+.search-input:valid {
+    width: 250px;
+}
+  
+
+.section{
+    padding: 0 15%;
+}
+
+.home{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2rem;
+}
+
+.home-text h1{
+    font-size: var(--h1-font);
+    line-height: 1.2;
+    margin-bottom: 2px;
+}
+
+.home-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*carrosel*/
+
+.wrapper{
+    display: flex;
+    max-width: 1200px;
+    position: relative;
+  }
+  .wrapper i{
+    top: 50%;
+    height: 44px;
+    width: 44px;
+    color: #343F4F;
+    cursor: pointer;
+    font-size: 1.15rem;
+    position: absolute;
+    text-align: center;
+    line-height: 44px;
+    background: #fff;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.1s linear;
+  }
+  .wrapper i:active{
+    transform: translateY(-50%) scale(0.9);
+  }
+  .wrapper i:hover{
+    background: #f2f2f2;
+  }
+  .wrapper i:first-child{
+    left: -22px;
+    display: none;
+  }
+  .wrapper i:last-child{
+    right: -22px;
+  }
+  .wrapper .carousel{
+    font-size: 0px;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+  }
+  .carousel.dragging{
+    cursor: grab;
+    scroll-behavior: auto;
+  }
+  .carousel.dragging img{
+    pointer-events: none;
+  }
+  .carousel img{
+    height: 340px;
+    object-fit: cover;
+    user-select: none;
+    margin-left: 14px;
+    width: calc(100% / 3);
+  }
+  .carousel img:first-child{
+    margin-left: 0px;
+  }
+  @media screen and (max-width: 900px) {
+    .carousel img{
+      width: calc(100% / 2);
+    }
+  }
+  @media screen and (max-width: 550px) {
+    .carousel img{
+      width: 100%;
+    }
+  }
